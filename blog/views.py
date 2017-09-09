@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment
 from django.utils import timezone
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, RegistrationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
@@ -90,7 +90,7 @@ def comment_remove(request,pk):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid:
             form.save()
             username = form.cleaned_data.get('username')
@@ -99,5 +99,5 @@ def register(request):
             login(request,user)
             return redirect('post_list')
     else:
-        form = UserCreationForm()
+        form = RegistrationForm()
     return render(request,'blog/register.html',{'form':form})

@@ -72,3 +72,11 @@ hr.style1 {
     width: 20%;
     margin: 0;
 }
+table, th, td {
+    border: 1px solid #E5DDDD;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
