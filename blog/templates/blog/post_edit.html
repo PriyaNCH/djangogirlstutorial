@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %} {% block content %}
+{% block title %}Blog Post Edit {% endblock %}
 <h1>New post</h1>
 <form method="POST">{% csrf_token %}
     <!-- {{ form.as_p }} will render the fields in Meta wrapped in <p> tags -->

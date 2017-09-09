@@ -1,7 +1,7 @@
 <!-- extends is relative to templates folder so use blog/base.html not just base.html -->
 {% extends 'blog/base.html' %}
 {% block title %}
-Django Girls Tutorial blog
+Django Girls Tutorial blog Posts
 {% endblock %}
 {% block content %}
       {% for post in posts %}
@@ -11,6 +11,8 @@ Django Girls Tutorial blog
                             </div>
                             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
                             <p>{{ post.text|linebreaksbr|truncatewords:20 }}</p>
+                            <a class="btn"><span class="glyphicon glyphicon-comment"></span></a>
+                            <a href="{% url 'post_detail' pk=post.pk%}">Comments: {{ post.approved_comments.count }}
                         </div>
                     {% endfor %}
 {% endblock %}

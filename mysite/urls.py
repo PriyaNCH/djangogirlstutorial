@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
+from django.contrib.auth import views
+from blog import views as blog_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'',include('blog.urls')),
+    url(r'^accounts/login/$',views.login,name='login'),
+    url(r'^accounts/logout/$',views.logout,name='logout',kwargs={'next_page':'/accounts/login'}), # kwargs next_page overrides the LOGOUT_REDIRECT_URL in settings.py
+                                                                                                   # For logout create logged_out.html under registration folder and add some content                                                                                                   
+    url(r'^register/$',blog_views.register,name='register'),
 ]

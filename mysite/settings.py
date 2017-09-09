@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'priyav.pythonanywhere.com']
 
+# When login is successful user is redirected to homepage of blog directly 
+LOGIN_REDIRECT_URL = '/'
+# LOGOUT_REDIRECT_URL = '/'
 
 # Application definition
 
