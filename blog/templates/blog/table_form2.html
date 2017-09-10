@@ -1,0 +1,20 @@
+<table>
+        {% if form.errors %}
+            <ul class='form-errors'>
+                {% for error in form.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% for error in form.non_field_errors %}
+            <tr><td>{{ error }}</td></tr>
+        {% endfor %}
+        
+        {% for field in form %}
+            {% for error in form.username.errors %}
+            <tr><td>{{ error }}</td></tr>
+            {% endfor %}
+            <tr><th>{{ field.label_tag }}</th><td>{{ field }}</td></td><td>{{ field.help_text | safe }}</td>
+        {% endfor %}
+</table>
