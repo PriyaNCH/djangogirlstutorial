@@ -19,7 +19,7 @@ class RegistrationForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
     last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
-    password1 = forms.CharField(help_text='Your password must contain at least 8 characters. Your password can be entirely numeric.')
+    # password = forms.CharField(help_text='Your password must contain at least 8 characters. Your password can be entirely numeric.',widget=forms.PasswordInput)
 
     class Meta:
         model = User
